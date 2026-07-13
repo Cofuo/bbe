@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca de Fe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap');
+        
+        :root {
+            --primary: 139 69 19;
+        }
+        
+        .tail-container {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', sans-serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: rgb(139 69 19);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="tail-container bg-stone-50 text-stone-800">
+
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-stone-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-book-open text-3xl text-amber-900"></i>
+                <h1 class="text-2xl font-bold heading-font tracking-tight">Biblioteca de Fe</h1>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#biblias" class="nav-link text-stone-700 hover:text-amber-900">Biblias</a>
+                <a href="#articulos" class="nav-link text-stone-700 hover:text-amber-900">Artículos</a>
+            </div>
+
+            <button onclick="toggleMobileMenu()" 
+                    class="md:hidden text-2xl text-stone-700">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-6 py-4 flex flex-col gap-4 text-sm font-medium">
+                <a href="#biblias" class="py-2 hover:text-amber-900" onclick="toggleMobileMenu()">Biblias</a>
+                <a href="#articulos" class="py-2 hover:text-amber-900" onclick="toggleMobileMenu()">Artículos</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero-bg h-screen flex items-center text-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-5xl md:text-6xl font-bold heading-font mb-6 leading-tight">
+                Palabra que ilumina
+            </h2>
+            <p class="text-xl md:text-2xl max-w-lg mx-auto mb-10 opacity-90">
+                Biblias y artículos para fortalecer tu fe
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#biblias" 
+                   class="bg-amber-900 hover:bg-amber-800 transition-colors px-8 py-4 rounded-xl font-semibold text-lg inline-flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-book"></i>
+                    Ver Biblias
+                </a>
+                <a href="#articulos" 
+                   class="border border-white hover:bg-white/10 transition-colors px-8 py-4 rounded-xl font-semibold text-lg inline-flex items-center justify-center">
+                    Explorar Artículos
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Biblias Section -->
+    <section id="biblias" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-1.5 bg-amber-100 text-amber-900 text-sm font-medium rounded-full mb-4">SAGRADAS ESCRITURAS</span>
+                <h2 class="text-4xl md:text-5xl font-bold heading-font">Biblias</h2>
+                <p class="mt-4 text-stone-600 max-w-md mx-auto">Cuatro versiones y traducciones para tu estudio personal</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Biblia 1 -->
+                <div class="card-hover bg-white border border-stone-200 rounded-3xl overflow-hidden group">
+                    <div class="h-60 bg-gradient-to-br from-amber-900 to-stone-800 flex items-center justify-center">
+                        <i class="fa-solid fa-book-bible text-8xl text-amber-100/80"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-semibold text-xl mb-2">Reina Valera 1960</h3>
+                        <p class="text-stone-600 text-sm leading-relaxed mb-6">La traducción más popular en español. Fiel y clásica.</p>
+                        <a href="#" class="text-amber-900 hover:text-amber-700 font-medium flex items-center gap-2 text-sm">
+                            Leer en línea 
+                            <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Biblia 2 -->
+                <div class="card-hover bg-white border border-stone-200 rounded-3xl overflow-hidden group">
+                    <div class="h-60 bg-gradient-to-br from-blue-900 to-stone-800 flex items-center justify-center">
+                        <i class="fa-solid fa-book-bible text-8xl text-blue-100/80"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-semibold text-xl mb-2">Nueva Versión Internacional</h3>
+                        <p class="text-stone-600 text-sm leading-relaxed mb-6">Lenguaje actual y claro para el lector moderno.</p>
+                        <a href="#" class="text-amber-900 hover:text-amber-700 font-medium flex items-center gap-2 text-sm">
+                            Leer en línea 
+                            <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Biblia 3 -->
+                <div class="card-hover bg-white border border-stone-200 rounded-3xl overflow-hidden group">
+                    <div class="h-60 bg-gradient-to-br from-emerald-900 to-stone-800 flex items-center justify-center">
+                        <i class="fa-solid fa-book-bible text-8xl text-emerald-100/80"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-semibold text-xl mb-2">Biblia de las Américas</h3>
+                        <p class="text-stone-600 text-sm leading-relaxed mb-6">Traducción literal y precisa.</p>
+                        <a href="#" class="text-amber-900 hover:text-amber-700 font-medium flex items-center gap-2 text-sm">
+                            Leer en línea 
+                            <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Biblia 4 -->
+                <div class="card-hover bg-white border border-stone-200 rounded-3xl overflow-hidden group">
+                    <div class="h-60 bg-gradient-to-br from-purple-900 to-stone-800 flex items-center justify-center">
+                        <i class="fa-solid fa-book-bible text-8xl text-purple-100/80"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-semibold text-xl mb-2">Dios Habla Hoy</h3>
+                        <p class="text-stone-600 text-sm leading-relaxed mb-6">Lenguaje sencillo y contemporáneo.</p>
+                        <a href="#" class="text-amber-900 hover:text-amber-700 font-medium flex items-center gap-2 text-sm">
+                            Leer en línea 
+                            <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artículos Section -->
+    <section id="articulos" class="py-20 bg-stone-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-1.5 bg-stone-200 text-stone-700 text-sm font-medium rounded-full mb-4">ENSEÑANZAS</span>
+                <h2 class="text-4xl md:text-5xl font-bold heading-font">Artículos</h2>
+                <p class="mt-4 text-stone-600 max-w-md mx-auto">Reflexiones, estudios y devocionales</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="articles-grid">
+                <!-- Los 10 artículos se generan con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-400 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-3 text-white">
+                    <i class="fa-solid fa-book-open text-3xl"></i>
+                    <span class="text-2xl font-bold heading-font">Biblioteca de Fe</span>
+                </div>
+                
+                <div class="text-sm text-center md:text-right">
+                    <p>© 2026 Biblioteca de Fe. Sitio estático para GitHub Pages.</p>
+                    <p class="mt-2">Hecho con ❤️ para crecer en la fe</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind script ya cargado
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Datos de ejemplo para los 10 artículos
+        const articles = [
+            { title: "La importancia de la oración diaria", date: "12 Jul 2026", category: "Oración", excerpt: "Cómo mantener una vida de oración consistente y poderosa." },
+            { title: "Entendiendo la gracia de Dios", date: "10 Jul 2026", category: "Doctrina", excerpt: "Un estudio profundo sobre uno de los conceptos más hermosos de la fe." },
+            { title: "Vivir en santidad en tiempos modernos", date: "8 Jul 2026", category: "Vida Cristiana", excerpt: "Principios bíblicos aplicados al mundo actual." },
+            { title: "El poder del perdón", date: "5 Jul 2026", category: "Relaciones", excerpt: "Por qué perdonar es liberador y cómo hacerlo." },
+            { title: "Estudio de Salmos 23", date: "3 Jul 2026", category: "Estudio Bíblico", excerpt: "Versículo por versículo: el Salmo más querido." },
+            { title: "La fe que mueve montañas", date: "1 Jul 2026", category: "Fe", excerpt: "Qué significa realmente tener fe según las Escrituras." },
+            { title: "El fruto del Espíritu", date: "28 Jun 2026", category: "Espiritualidad", excerpt: "Cómo desarrollar el carácter de Cristo." },
+            { title: "La segunda venida de Cristo", date: "25 Jun 2026", category: "Escatología", excerpt: "Lo que dice la Biblia sobre el regreso del Señor." },
+            { title: "Matrimonio según el diseño de Dios", date: "22 Jun 2026", category: "Familia", excerpt: "Principios bíblicos para un matrimonio fuerte." },
+            { title: "Cómo leer la Biblia con provecho", date: "20 Jun 2026", category: "Herramientas", excerpt: "Métodos prácticos para estudiar la Palabra." }
+        ];
+
+        function renderArticles() {
+            const container = document.getElementById('articles-grid');
+            container.innerHTML = '';
+
+            articles.forEach((article, index) => {
+                const articleHTML = `
+                    <div class="bg-white border border-stone-200 rounded-3xl overflow-hidden card-hover group">
+                        <div class="h-2 bg-gradient-to-r from-amber-900 via-amber-700 to-stone-700"></div>
+                        <div class="p-8">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="text-xs font-medium uppercase tracking-widest text-amber-900">${article.category}</span>
+                                <span class="text-xs text-stone-500">${article.date}</span>
+                            </div>
+                            <h3 class="font-semibold text-xl leading-tight mb-3 group-hover:text-amber-900 transition-colors">${article.title}</h3>
+                            <p class="text-stone-600 text-sm leading-relaxed line-clamp-3">${article.excerpt}</p>
+                            
+                            <div class="mt-8 pt-6 border-t border-stone-100 flex justify-between items-center">
+                                <a href="#" class="text-amber-900 hover:text-amber-700 text-sm font-medium flex items-center gap-2">
+                                    Leer completo
+                                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                                </a>
+                                <i class="fa-solid fa-heart text-stone-300 hover:text-red-500 cursor-pointer transition-colors"></i>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += articleHTML;
+            });
+        }
+
+        // Inicializar
+        window.onload = function() {
+            renderArticles();
+        };
+    </script>
+</body>
+</html>
